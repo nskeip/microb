@@ -2,7 +2,7 @@
 {% from 'macro_err.html' import err %}
 {% block title %}Add post{{super()}}{% endblock %}
 
-{%- block head %}
+{% block head -%}
     {{super()}}
     <link href="{{url_for('static', filename='css/add_edit.css')}}" rel="stylesheet"/>
     <link href="{{url_for('static', filename='css/smoothness/jquery-ui-1.8.5.custom.css')}}" rel="stylesheet"/>
@@ -43,7 +43,7 @@
     </script>
 {%- endblock head %}
 
-{%- block content %}
+{% block content -%}
 <div class="form">
     <form method='post' action='{{url_for("post_add_edit", id=id)}}'>
         {{form.title.label}}:<br/>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='ru'>
 <head>
-    {%- block head %}
+    {% block head -%}
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <meta charset="utf-8">
     <title>{% block title %} - microb.example.com{% endblock %}</title>
@@ -14,7 +14,7 @@
         <a id="header_title" href="{{url_for('index')}}">microb.example.com</a><br/>
     </div>
     <div id="content">
-        {%- block content %}
+        {% block content -%}
         {%- endblock content %}
     </div>
 </div>

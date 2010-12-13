@@ -1,8 +1,8 @@
-{%- macro err(errors)  %}
-{%- if errors %}
+{% macro err(errors)  -%}
+{% if errors -%}
 <div class="error">        
     <ul>
-    {%- for e in errors %}
+    {% for e in errors -%}
         <li>{{e}}</li>
     {%- endfor %}
     </ul>
