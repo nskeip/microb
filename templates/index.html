@@ -4,10 +4,12 @@
 
 {%- block content %}
 <ul class="txt">
-    {%- for n in news %}
+    {%- for p in posts %}
     <li>
-        <h2><span class="content_title"><a href="{{url_for('post_show', id=n.id)}}">{% if n.title %}{{n.title}}{% else %}***{% endif %}</a></span></h2>
-        <p>{{n.text|safe}}</p>
+        <h2><span class="post_title"><a href="{{url_for('post_show', id=p.id)}}">{% if p.title %}{{p.title}}{% else %}***{% endif %}</a></span></h2>
+        {% block post_text scoped -%}
+        <p>{{p.text|safe}}</p>
+        {%- endblock post_text %}
     </li>
     {%- endfor %}
 </ul>

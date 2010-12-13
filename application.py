@@ -16,7 +16,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html',
-                           news = Post.query.order_by(Post.date.desc()).\
+                           posts = Post.query.order_by(Post.date.desc()).\
                                   filter(Post.published==True)[:5])
 
 @app.route('/posts/')
@@ -52,8 +52,6 @@ def post_add_edit(id=None):
         db_session.add(post)
         db_session.commit()
         return redirect(url_for('index'))
-
-    print form.errors
 
     return render_template('add_edit.html',
                            form=form,

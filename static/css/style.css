@@ -20,25 +20,10 @@ html,body {
     padding-left: 20px;
 }
 
-#header {
-    padding-top: 50px;
-}
-
-#content_nav_holder {
-    margin-top: 20px;
-    float: left;
-    width: 100%;
-}
-
-#footer {
-    position:absolute;
-	width:100%;
-	bottom:0; /* stick to bottom */
-}
-
 /* ended position tricks... */
 
 h1, h2, h3, h4 {
+    font-family: sans-serif;
     font-style: normal;
     font-weight: normal;
 }
@@ -53,36 +38,38 @@ h2 {
     font-size: 20pt;
 }
 
-#header_title {
-    font-size: 36pt;
-    font-family: Times, serif;
+.post_title {
+    color: #ffffff;
+    background-color: #aeaeae;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.post_title a {
     text-decoration: none;
-    color: #999999;
+    color: inherit;
+}
+
+#header {
+    padding-top: 50px;
+}
+
+#header_title {
+    font-size: 52pt;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    color: #cccccc;
+    text-shadow: 2px 2px 2px #999999;
 }
 
 #content {
-    width: 70%;
     position: relative;
     float: left;
     overflow: hidden;
-    padding-right: 5px;
+    padding: 5px;
     text-align: justify;
-}
-
-#nav {
-    position: relative;
-    float: right;
-    overflow: hidden;
-    width: 27%;
-    border-left: 1px dotted #999999;
-    padding-left: 10px;
-    font-size: 20pt;
-    font-family: 'Garamon', 'Times New Roman', serif;
-}
-
-#nav li {
-    list-style: none;
-    padding-bottom: 10px;
+    margin-top: 45px;
 }
 
 .txt {
@@ -99,17 +86,4 @@ h2 {
     margin-bottom: 0.5em;
     padding-right: 5px;
     text-indent: 30px;
-}
-
-span.content_title {
-    font-family: sans-serif;
-    color: #ffffff;
-    background-color: #aeaeae;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-span.content_title a {
-    text-decoration: none;
-    color: inherit;
 }

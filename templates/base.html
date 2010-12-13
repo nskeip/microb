@@ -13,21 +13,9 @@
     <div id="header">
         <a id="header_title" href="{{url_for('index')}}">microb.example.com</a><br/>
     </div>
-    <div id="content_nav_holder">
-        <div id="content">
+    <div id="content">
         {%- block content %}
         {%- endblock content %}
-        </div>
-        <div id="nav">
-        {%- block nav %}
-            <ul>
-                <li>nav...</li>
-            </ul>
-        {%- endblock nav %}
-        </div>
-    </div>
-    <div id="footer">
-        powered by microb
     </div>
 </div>
 </body>

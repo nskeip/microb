@@ -1,13 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'index.html' %}
 
-{%- block title %}Archive{{super()}}{%- endblock title %}
+{%- block title %}Archive{%- endblock title %}
 
-{%- block content %}
-<ul class="txt">
-    {%- for p in posts %}
-    <li>
-        <h2>{{p.date.date()}} <a href='{{url_for("post_show", id=p.id)}}'>{% if p.title %}{{p.title}}{% else %}***{% endif %}</a></h2>
-    </li>
-    {% endfor %}
-</ul>
-{%- endblock content %}
+{% block post_text scoped -%}
+{%- endblock post_text %}
