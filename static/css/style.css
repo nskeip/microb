@@ -17,7 +17,6 @@ html,body {
 	width:1024px;
 	height:auto !important; /* real browsers */
 	min-height:100%; /* real browsers */
-    padding-left: 20px;
 }
 
 /* ended position tricks... */
