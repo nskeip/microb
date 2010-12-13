@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% from 'macro_err.html' import err %}
+{% block title %}Add post{{super()}}{% endblock %}
+
+{%- block head %}
+    {{super()}}
+    <link href="{{url_for('static', filename='css/add_edit.css')}}" rel="stylesheet"/>
+    <link href="{{url_for('static', filename='css/smoothness/jquery-ui-1.8.5.custom.css')}}" rel="stylesheet"/>
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery-1.4.2.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery-ui-1.8.5.custom.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/tiny_mce.js')}}"></script>
+    <script type="text/javascript">
+        tinyMCE.init({
+            mode : "textareas",
+            theme : "advanced"
+        });
+    </script>
+    <script type="text/javascript">
+
+        function toggleEditor(id) {
+            if (!tinyMCE.get(id)) {
+                tinyMCE.execCommand('mceAddControl', false, id);
+            } else {
+                tinyMCE.execCommand('mceRemoveControl', false, id);
+            }
+        }
+
+        $(document).ready(function() {
+            $('#post_add_datepicker').datepicker({
+                inline: true,
+                dateFormat : 'dd/mm/yy 12:00:00',
+                showButtonPanel: true
+            });
+
+            var char_counter = function() {
+                $('#title_len').html($('#title').val().length);
+            }
+
+            $('#title').keyup(char_counter);
+            $('#title').keydown(char_counter);
+
+        });
+    </script>
+{%- endblock head %}
+
+{%- block content %}
+<div class="form">
+    <form method='post' action='{{url_for("post_add_edit", id=id)}}'>
+        {{form.title.label}}:<br/>
+        {{form.title(maxlength="70")}}
+        <span id="title_len">0</span> / 70<br/>
+        {{err(form.title.errors)}}
+        {{form.date.label}}:<br/>
+        {{form.date(id='post_add_datepicker')}}<br/>
+        {{err(form.date.errors)}}
+        {{form.text.label}}:<a href="#" onclick="toggleEditor('text')">Hide/show editor.</a>
+        <br/>
+        {{form.text}}<br/>
+        {{err(form.text.errors)}}
+        {{form.published}} {{form.published.label}}<br/>
+        <input name="submit" type="submit" value="Save"/>
+    </form>
+    {% if id %}
+    <form method='post' action='{{url_for("post_delete", id=id)}}'>
+        <input name="submit" type="submit" value="Delete"/>
+    </form>
+    {% endif %}
+</div>
+{%- endblock content %}
+
