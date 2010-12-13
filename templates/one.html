@@ -5,6 +5,7 @@
 {%- block content %}
 <div class="txt">
     <h1><span class="post_title">{{post.title}}</span></h1>
+    <p>{{post.date.strftime('%d.%m.%Y')}}</p>
     {{post.text|safe}}
 </div>
 {%- endblock content %}

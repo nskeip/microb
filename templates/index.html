@@ -6,7 +6,7 @@
 <ul class="txt">
     {%- for p in posts %}
     <li>
-        <h2><span class="post_title"><a href="{{url_for('post_show', id=p.id)}}">{% if p.title %}{{p.title}}{% else %}***{% endif %}</a></span></h2>
+        <h2><span class="post_date">{{p.date.strftime('%d.%m.%Y')}}</span>&nbsp;<span class="post_title"><a href="{{url_for('post_show', id=p.id)}}">{% if p.title %}{{p.title}}{% else %}***{% endif %}</a></span></h2>        
         {% block post_text scoped -%}
         <p>{{p.text|safe}}</p>
         {%- endblock post_text %}
